@@ -33,5 +33,6 @@
 - Ключевые продуктовые решения
   - Возможность обращаться к сторонним сервисам с помощью модели
   - Дообучение модели (на основе фидбека)
+  - Монетизация (доступ к более новым версиям модели)
 ### Список источников
 1. [SimilarWEB](https://pro.similarweb.com/#/digitalsuite/websiteanalysis/overview/website-performance/*/999/1m?webSource=Total&key=chat.openai.com)
