@@ -117,9 +117,37 @@
 | Отправка текстового запроса для модели | 208,4 * (75 Б + 226 Б) ~ 63 КБ/c ~ 0,5 Мбит/c | 312,6 * (75 Б + 226 Б) ~ 0,75 Мбит/с | 0,5 Мбит/с * 86400 с ~ 5,4 ГБ/сут |
 | Отправка медиа-запроса для модели | 52 * (0.5 МБ + 75 Б + 226 Б) ~ 28 МБ/c ~ 221 Мбит/с | 78,2 * (0.5 МБ + 75 Б + 226 Б) ~ 332 Мбит/с| 221 Мбит/с * 86400 с ~ 2,4 ТБ/сут |
 
+## 3. Глобальная балансировка нагрузки
+### Распределение по доменам
+- Основной домен chatgpt.com
+- CDN media.chatgpt.com
+- Авторизация auth.chatgpt.com
+- Взаимодействие с моделью api.chatgpt.com
+### Обоснования расположения ДЦ
+- Пояснение
+- Можно расположить в:
+  - Сан-Франциско
+  - Даллас
+  - Нью-Йорк
+  - Лос-Анжелес
+  - Сиэтл
+  - Денвер
+  - Вашингтон
+  - Чикаго
+  - Майами
+  - Лондон
+  - Манчестер
+  - Мумбаи
+  - Бангалор
+  - Нью-Дели
+  - Колката
+### Схема DNS балансировки
 
 ### Список источников
 1. [SimilarWEB](https://pro.similarweb.com/#/digitalsuite/websiteanalysis/overview/website-performance/*/999/1m?webSource=Total&key=chat.openai.com)
 2. [ExplodingTopics](https://explodingtopics.com/blog/chatgpt-users)
 3. [InvestingInTheWEB](https://investingintheweb.com/education/chatgpt-statistics/)
 4. [Language Models are Few-Shot Learners](https://arxiv.org/pdf/2005.14165)
+5. [OpenAI](https://platform.openai.com/docs/guides/production-best-practices/improving-latencies#:~:text=Our%20servers%20are%20currently%20located%20in%20the%20US)
+6. [IEM](https://www.internetexchangemap.com/)
+7. [SCM](https://www.submarinecablemap.com/)
