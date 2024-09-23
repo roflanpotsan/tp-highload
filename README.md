@@ -163,4 +163,3 @@
 4. [Language Models are Few-Shot Learners](https://arxiv.org/pdf/2005.14165)
 5. [OpenAI](https://platform.openai.com/docs/guides/production-best-practices/improving-latencies#:~:text=Our%20servers%20are%20currently%20located%20in%20the%20US)
 6. [IEM](https://www.internetexchangemap.com/)
-7. [SCM](https://www.submarinecablemap.com/)
