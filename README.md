@@ -168,15 +168,6 @@ ChatGPT имеет ~ 121.3 MAU, наибольшее число пользова
 
 Используя GeoDNS для определения региона пользователя (США, Европа или Азия) и BGP Anycast для распределения нагрузки внутри США между тремя датацентрами, можно обеспечить глобальную доступность сервисов и минимизировать задержки за счёт оптимальных маршрутов внутри основного региона.
 
-### Список источников
-
-1. [SimilarWEB](https://pro.similarweb.com/#/digitalsuite/websiteanalysis/overview/website-performance/*/999/1m?webSource=Total&key=chat.openai.com)
-2. [ExplodingTopics](https://explodingtopics.com/blog/chatgpt-users)
-3. [InvestingInTheWEB](https://investingintheweb.com/education/chatgpt-statistics/)
-4. [Language Models are Few-Shot Learners](https://arxiv.org/pdf/2005.14165)
-5. [OpenAI](https://platform.openai.com/docs/guides/production-best-practices/improving-latencies#:~:text=Our%20servers%20are%20currently%20located%20in%20the%20US)
-6. [IEM](https://www.internetexchangemap.com/)
-
 ## 4. Локальная балансировка нагрузки
 
 Для обеспечения отказоустойчивости и балансировки будут использоваться K8s и Nginx.
@@ -197,3 +188,12 @@ ChatGPT имеет ~ 121.3 MAU, наибольшее число пользова
   - автоматически перезапускает упавшие контейнеры и перераспределяя поды при сбоях узлов (liveness, readiness), тем самым поддерживая непрерывность работы приложений.
 - Nginx
   - встроенные механизмы отказоустойчивости: Возможность автоматического временного исключения недоступных бэкендов из пула серверов.
+
+### Список источников
+
+1. [SimilarWEB](https://pro.similarweb.com/#/digitalsuite/websiteanalysis/overview/website-performance/*/999/1m?webSource=Total&key=chat.openai.com)
+2. [ExplodingTopics](https://explodingtopics.com/blog/chatgpt-users)
+3. [InvestingInTheWEB](https://investingintheweb.com/education/chatgpt-statistics/)
+4. [Language Models are Few-Shot Learners](https://arxiv.org/pdf/2005.14165)
+5. [OpenAI](https://platform.openai.com/docs/guides/production-best-practices/improving-latencies#:~:text=Our%20servers%20are%20currently%20located%20in%20the%20US)
+6. [IEM](https://www.internetexchangemap.com/)
