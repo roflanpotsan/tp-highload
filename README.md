@@ -558,6 +558,42 @@ Prompt-tuning'а достаточно, чтобы сравниться с пол
 
 **Redis Database (RDB)** - данный метод резервного копирования позволяет создавать периодические снимки данных, обеспечивая высокую производительность и восстановление данных при сбоях, даже если Redis выходит из строя.
 
+## Расчёт ресурсов
+
+### Сервисы
+
+| Сервис             | Целевая пиковая нагрузка                                                        | CPU       | GPU (100GB) | RAM(1GB) | NET (Gbit/s) |
+| ------------------ | ------------------------------------------------------------------------------- | --------- | ----------- | -------- | ------------ |
+| Nginx              | 4330,24 RPS                                                                     | 20 cores  | -           | 20       | 29,1         |
+| Auth               | 0,42 + 5,16 + 156,3 + 156,3 + 156,3 + 156,3 + 312,6 + 78,2 + 5,16 = 1026,74 RPS | 110 cores | -           | 110      | 1            |
+| User               | 156,3 RPS                                                                       | 15 cores  | -           | 15       | 0,85         |
+| Chat               | 156,3 + 156,3 + 312,6 + 78,2 + 5,16 = 708,56 RPS                                | 80 cores  | -           | 80       | 0,3          |
+| Media              | 156,3 + 78,2 = 234,5 RPS                                                        | 30 cores  | -           | 60       | 1            |
+| Analytics(Metrics) | 0,42 + 5,16 + 156,3 + 156,3 + 156,3 + 156,3 + 312,6 + 78,2 + 5,16 = 1026,74 RPS | 110 cores | -           | 220      | 0,85         |
+| Inference          | 312,6 + 78,2 = 390,8 RPS                                                        | 64 cores  | 32 GPUs     | 256      | 10           |
+| ModelStorage       | 312,6 + 78,2 = 390,8 RPS                                                        | 4 cores   | -           | 4        | 0,1          |
+| DataProcessing     | 312,6 + 78,2 = 390,8 RPS                                                        | 128 cores | 64 GPUs     | 1024     | 15           |
+| ModelTraining      | < 5 RPS                                                                         | 200 cores | 100 GPUs    | 1600     | > 1000       |
+
+### Узлы
+
+| Сервис              | CPU/r (Per Node) | RAM/r (Per Node) | GPU/r (Per Node) | Count |
+| ------------------- | ---------------- | ---------------- | ---------------- | ----- |
+| Nginx               | 8 cores          | 32 GB            | -                | 4     |
+| Auth                | 8 cores          | 32 GB            | -                | 14    |
+| User                | 8 cores          | 32 GB            | -                | 2     |
+| Chat                | 8 cores          | 32 GB            | -                | 10    |
+| Media               | 8 cores          | 32 GB            | -                | 4     |
+| Analytics (Metrics) | 8 cores          | 32 GB            | -                | 14    |
+| Inference           | 16 cores         | 64 GB            | 2 GPUs           | 16    |
+| ModelStorage        | 8 cores          | 32 GB            | -                | 1     |
+| DataProcessing      | 16 cores         | 64 GB            | 2 GPUs           | 32    |
+| ModelTraining       | 16 cores         | 64 GB            | 2 GPUs           | 50    |
+
+| Название | Хостинг | Конфигурация                                                   | Cores | Count |
+| -------- | ------- | -------------------------------------------------------------- | ----- | ----- |
+| kubenode | own     | 2x6338 / 10x8GB DDR5 RAM / 2xH100 NVL GPU / 4TB NVMe / 100Gb/s | 20    | 98    |
+
 ### Список источников
 
 1. [SimilarWEB](https://pro.similarweb.com/#/digitalsuite/websiteanalysis/overview/website-performance/*/999/1m?webSource=Total&key=chat.openai.com)
