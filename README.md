@@ -575,20 +575,20 @@ Prompt-tuning'а достаточно, чтобы сравниться с пол
 | DataProcessing     | 312,6 + 78,2 = 390,8 RPS                                                        | 128 cores | 64 GPUs     | 1024     | 15           |
 | ModelTraining      | < 5 RPS                                                                         | 200 cores | 100 GPUs    | 1600     | > 1000       |
 
-### Узлы для одного ДЦ
+### Узлы
 
-| Сервис              | CPU/r (Per Node) | RAM/r (Per Node) | GPU/r (Per Node) | Count |
-| ------------------- | ---------------- | ---------------- | ---------------- | ----- |
-| Nginx               | 8 cores          | 32 GB            | -                | 2     |
-| Auth                | 8 cores          | 32 GB            | -                | 14    |
-| User                | 8 cores          | 32 GB            | -                | 2     |
-| Chat                | 8 cores          | 32 GB            | -                | 10    |
-| Media               | 8 cores          | 32 GB            | -                | 4     |
-| Analytics (Metrics) | 8 cores          | 32 GB            | -                | 14    |
-| Inference           | 16 cores         | 64 GB            | 2 GPUs           | 16    |
-| ModelStorage        | 8 cores          | 32 GB            | -                | 1     |
-| DataProcessing      | 16 cores         | 64 GB            | 2 GPUs           | 32    |
-| ModelTraining       | 16 cores         | 64 GB            | 2 GPUs           | 50    |
+| Сервис              | CPU/r (Per Node) | RAM/r (Per Node) | GPU/r (Per Node) | Count       |
+| ------------------- | ---------------- | ---------------- | ---------------- | ----------- |
+| Nginx               | 8 cores          | 32 GB            | -                | 10 (2 \* 5) |
+| Auth                | 8 cores          | 32 GB            | -                | 14          |
+| User                | 8 cores          | 32 GB            | -                | 10 (2 \* 5) |
+| Chat                | 8 cores          | 32 GB            | -                | 10          |
+| Media               | 8 cores          | 32 GB            | -                | 20 (4 \* 5) |
+| Analytics (Metrics) | 8 cores          | 32 GB            | -                | 14          |
+| Inference           | 16 cores         | 64 GB            | 2 GPUs           | 16          |
+| ModelStorage        | 8 cores          | 32 GB            | -                | 5 (1 \* 5)  |
+| DataProcessing      | 16 cores         | 64 GB            | 2 GPUs           | 32          |
+| ModelTraining       | 16 cores         | 64 GB            | 2 GPUs           | 50          |
 
 | Название | Хостинг | Конфигурация                                                   | Cores | Count |
 | -------- | ------- | -------------------------------------------------------------- | ----- | ----- |
